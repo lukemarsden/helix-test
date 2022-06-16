@@ -1,0 +1,13 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: sk-learn-random-forest-reg-cookpad
+  namespace: helix-project-0
+spec:
+  predictor:
+    model:
+      modelFormat:
+        name: sklearn
+      runtime: kserve-mlserver
+      storageUri: s3://helix-test/0/dd969bca047448f39ad4e464d16b08aa/artifacts/model
+    serviceAccountName: sk-learn-random-forest-reg-cookpad
