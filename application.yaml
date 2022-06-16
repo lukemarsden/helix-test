@@ -3,7 +3,7 @@ kind: Application
 metadata:
   labels:
     app.kubernetes.io/managed-by: modeldynamics
-  name: sk-learn-random-forest-reg2
+  name: sk-learn-random-forest-reg3
   namespace: argocd
 spec:
   destination:
