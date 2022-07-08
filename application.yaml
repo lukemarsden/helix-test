@@ -1,22 +1,39 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
   labels:
+    app.kubernetes.io/created-by: modeldynamics-helix
     app.kubernetes.io/managed-by: modeldynamics
-  name: sk-learn-random-forest-reg-cookpad
+    app.kubernetes.io/name: foo
+    app.kubernetes.io/part-of: helix-project
+  name: foo
   namespace: argocd
 spec:
   destination:
-    namespace: helix-project-0
+    namespace: helix-foo
     server: https://kubernetes.default.svc
-  project: default
+  project: foo
   source:
-    path: ./
+    helm:
+      valueFiles:
+      - values.yaml
+    path: .
     repoURL: git@github.com:lukemarsden/helix-test
     targetRevision: HEAD
   syncPolicy:
     automated:
+      allowEmpty: true
       prune: true
       selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 30s
+      limit: -1
     syncOptions:
     - CreateNamespace=true
+    - PrunePropagationPolicy=background
+    - PruneLast=true

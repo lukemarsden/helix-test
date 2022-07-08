@@ -1,0 +1,5 @@
+apiVersion: v2
+description: This is a Model Dynamics Helix project.
+home: git@github.com:lukemarsden/helix-test
+name: foo
+version: 0.0.0
