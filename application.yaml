@@ -6,21 +6,21 @@ metadata:
   labels:
     app.kubernetes.io/created-by: modeldynamics-helix
     app.kubernetes.io/managed-by: modeldynamics
-    app.kubernetes.io/name: foo
+    app.kubernetes.io/name: ohhello
     app.kubernetes.io/part-of: helix-project
-  name: foo
+  name: ohhello
   namespace: argocd
 spec:
   destination:
-    namespace: helix-foo
+    namespace: helix-ohhello
     server: https://kubernetes.default.svc
-  project: foo
+  project: ohhello
   source:
     helm:
       valueFiles:
       - values.yaml
     path: .
-    repoURL: git@github.com:lukemarsden/helix-test
+    repoURL: git@github.com:lukemarsden/helix-test.git
     targetRevision: HEAD
   syncPolicy:
     automated:
