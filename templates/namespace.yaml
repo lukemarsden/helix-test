@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/created-by: modeldynamics-helix
     app.kubernetes.io/managed-by: modeldynamics
-    app.kubernetes.io/name: ohhello
+    app.kubernetes.io/name: helix
     app.kubernetes.io/part-of: helix-project
-  name: helix-ohhello
+  name: helix-helix
   namespace: argocd
